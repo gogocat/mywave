@@ -8,13 +8,13 @@ import {
     signUpFormSchema, 
     signUpFormSchemaInitValues 
 } from 'validationSchemas/signUp';
+import services from 'services';
 
 import { ISignUpFormValues } from 'interfaces';
 
 function SignUp() {
     const handleFormSubmit = (values: ISignUpFormValues) => {
-        // eslint-disable-next-line no-console
-        console.log('submit form: ', values);
+        services.signUpService(values);
     };
 
     return (
