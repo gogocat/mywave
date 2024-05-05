@@ -1,19 +1,20 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import {
     Formik, 
     Form,
 } from 'formik';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import TextInputField from 'components/TextInputField';
 import { 
     signUpFormSchema, 
     signUpFormSchemaInitValues 
 } from 'validationSchemas/signUp';
 
+import { ISignUpFormValues } from 'interfaces';
+
 function SignUp() {
-    const handleFormSubmit = () => {
-        
+    const handleFormSubmit = (values: ISignUpFormValues) => {
+        // eslint-disable-next-line no-console
+        console.log('submit form: ', values);
     };
 
     return (
@@ -24,33 +25,18 @@ function SignUp() {
                 onSubmit={handleFormSubmit}
             >
                 <Form>
-                    <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
+                    <TextInputField
                         label="Email Address"
                         name="email"
                         autoComplete="email"
-                        autoFocus
                     />
-                    <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
+                    <TextInputField
                         label="Password"
-                        type="password"
-                        id="password"
+                        name="password"
                     />
-                    <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="confirmPassword"
+                    <TextInputField
                         label="Confirm password"
-                        type="password"
-                        id="confirmPassword"
+                        name="confirmPassword"
                     />
                     <Button
                         type="submit"
