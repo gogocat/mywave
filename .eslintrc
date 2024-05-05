@@ -1,0 +1,96 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "legacyDecorators": true
+        }
+    },
+    "extends": ["airbnb","prettier"],
+    "plugins": [
+        "react", 
+        "jsx-a11y", 
+        "import", 
+        "jest",
+        "@typescript-eslint"
+    ],
+    "ignorePatterns": ["node_modules/*", "public/*"],
+    "globals": {
+        "cy": true,
+        "jest": true,
+        "document": true,
+        "module": true,
+        "process": true,
+        "window": true,
+        "global": true
+    },
+    "env": {
+        "browser": true,
+        "node": false,
+        "jest": true
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "semi": ["error", "always"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".ts", ".jsx", ".tsx"]
+            }
+        ],
+        "jsx-a11y/label-has-for": "off",
+        "react/prop-types": "off",
+        "react/require-default-props": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-fragments": "off",
+        "react/jsx-curly-newline": "off",
+        "react/state-in-constructor": "off",
+        "react/static-property-placement": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-max-props-per-line": [
+            "error",
+            {
+                "maximum": 1,
+                "when": "always"
+            }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-import-module-exports": "off",
+        "max-len": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-useless-catch": "off",
+        "no-unused-vars": "warn",
+        "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
+        "object-curly-newline": [
+            "error",
+            {
+                "ObjectExpression": { "multiline": true },
+                "ObjectPattern": { "multiline": true, "minProperties": 1 },
+                "ImportDeclaration": { "multiline": true, "minProperties": 2 },
+                "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+            }
+        ],
+        "object-curly-spacing": ["error", "always"],
+        "no-use-before-define": "off",
+        "no-restricted-imports": "off",
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/valid-expect": "error",
+        "@typescript-eslint/no-use-before-define": ["error"]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["./src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
+}
