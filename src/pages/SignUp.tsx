@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -5,10 +6,27 @@ import Grid from '@mui/material/Grid';
 import LockIcon from '@mui/icons-material/Lock';
 import Typography from '@mui/material/Typography';
 import SignUpForm from 'components/Forms/SignUpForm';
+import Tick from 'components/Tick';
+
+import './SignUp.scss';
+
+function SuccessMessage() {
+    return (
+        <div className="sign-up__success-message">
+            <Tick size="lg" />
+            <h3 className="text-center">Success!</h3>
+            <p>Thank you registered.</p>
+        </div>
+    );
+}
 
 function SignUp() {
+    const [isCompleted, setIsCompleted] = useState(false);
+
     return (
-        <Grid container
+        <Grid 
+            container
+            className="sign-up"
             component="main"
             sx={{ height: '100vh' }}>
             <Grid
@@ -49,7 +67,10 @@ function SignUp() {
                         variant="h5">
                         Sign Up
                     </Typography>
-                    <SignUpForm />
+                    { isCompleted 
+                        ? <SuccessMessage />
+                        : <SignUpForm onCompleted={setIsCompleted}/>
+                    }
                 </Box>
             </Grid>
         </Grid>

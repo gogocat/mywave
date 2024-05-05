@@ -4,14 +4,14 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import services from 'services';
-import SignUp from './SignUpForm';
+import SignUpForm from './SignUpForm';
 
 
 describe('Sing Up screen', () => {
     it('should renders Sing Up form', () => {
         const {
             asFragment
-        } = render(<SignUp />);
+        } = render(<SignUpForm />);
 
         const userNameField = screen.getByLabelText('Email Address');
         const passwordField = screen.getByLabelText('Password');
@@ -28,7 +28,7 @@ describe('Sing Up screen', () => {
     it('should validate email field', async()=> {
         const user = userEvent.setup();
 
-        render(<SignUp />);
+        render(<SignUpForm />);
 
         const userNameField: HTMLInputElement = screen.getByLabelText('Email Address');
 
@@ -49,7 +49,7 @@ describe('Sing Up screen', () => {
     it('should validate password field', async()=> {
         const user = userEvent.setup();
 
-        render(<SignUp />);
+        render(<SignUpForm />);
 
         const VALID_PASSWORD = '#A3';
         
@@ -89,7 +89,7 @@ describe('Sing Up screen', () => {
         expect(muiErrorCss?.classList?.contains('Mui-error')).toBe(false);
 
         // assert confirm password field
-        await user.type(confirmPasswordField, '123');
+        await user.type(confirmPasswordField, '!B1');
         await userEvent.click(document.body);
         expect(await screen.findByText('Passwords must match')).toBeInTheDocument();
 
@@ -105,7 +105,7 @@ describe('Sing Up screen', () => {
 
         const user = userEvent.setup();
 
-        render(<SignUp />);
+        render(<SignUpForm />);
 
         const VALID_VALUES = {
             userName: 'test@test.com',
